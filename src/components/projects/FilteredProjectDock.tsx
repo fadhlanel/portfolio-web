@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowUpRight,
@@ -25,6 +25,18 @@ export const FilteredProjectDock: React.FC<FilteredProjectDockProps> = ({
   onSelectProject
 }) => {
   const [activeProjectId, setActiveProjectId] = useState<string>(projects[0]?.id || 'cimart');
+  const [prevScrollY, setPrevScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setPrevScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollY]);
 
   const categories: { id: ProjectCategory; label: string; count: number }[] = [
     { id: 'all', label: 'Semua Proyek', count: projects.length },
@@ -61,12 +73,12 @@ export const FilteredProjectDock: React.FC<FilteredProjectDockProps> = ({
             <span className="text-[10px] sm:text-xs font-mono font-black uppercase tracking-wider text-[#0f172a] bg-[#fde047] px-2 py-0.5 sm:px-3 sm:py-0.5 rounded-lg border-2 border-[#0f172a] shadow-[2px_2px_0px_#0f172a] inline-block mb-1">
               04 // INDEKS PORTOFOLIO
             </span>
-            <h3 className="text-lg sm:text-2xl font-black text-white sm:text-[#0f172a] tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] sm:drop-shadow-none">
+            <h3 className="text-lg sm:text-2xl font-black text-white tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
               Eksplorasi Proyek &amp; Hasil Rekayasa
             </h3>
           </div>
 
-          {/* category selection */}
+           {/* category selection */}
           <div className="grid grid-cols-3 sm:flex sm:items-center gap-1.5 sm:gap-2 w-full sm:w-auto">
             {categories.map((cat) => {
               const shortLabel =
@@ -101,7 +113,7 @@ export const FilteredProjectDock: React.FC<FilteredProjectDockProps> = ({
                   </span>
                 </button>
               );
-            })}
+             })}
           </div>
         </div>
 

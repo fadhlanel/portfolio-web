@@ -50,9 +50,14 @@ export const FlagshipSlideCard: React.FC<FlagshipSlideCardProps> = ({
           </span>
         </div>
 
-        <div className="hidden sm:block text-xs font-mono font-black text-[#0f172a] px-3.5 py-1.5 rounded-xl bg-[#fffdf5] border-2 border-[#0f172a] shadow-[3px_3px_0px_#0f172a]">
-          FLAGSHIP {index + 1} / 3
-        </div>
+        <motion.div 
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0 }}
+          className="hidden sm:block text-xs font-mono font-black text-[#0f172a] px-3.5 py-1.5 rounded-xl bg-[#fffdf5] border-2 border-[#0f172a] shadow-[3px_3px_0px_#0f172a] mt-8">
+          PROYEK UNGGULAN {index + 1} / 3
+        </motion.div>
       </div>
 
       {/* project presentation content */}

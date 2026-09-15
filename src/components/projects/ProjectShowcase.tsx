@@ -14,6 +14,8 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('all');
   const [localActiveProject, setLocalActiveProject] = useState<Project | null>(null);
+  const [indicatorVisible, setIndicatorVisible] = useState(true);
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleSelect = onOpenProject || setLocalActiveProject;
   const activeProject = onOpenProject ? null : localActiveProject;
@@ -35,6 +37,23 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject 
     restDelta: 0.0005
   });
 
+  // auto-hide indicator when scroll stops
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIndicatorVisible(true);
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIndicatorVisible(false);
+      }, 1200);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+    };
+  }, []);
+
   // gradual overlapping curtain wipe ranges
   const ySlide2 = useTransform(smoothProgress, [0.22, 0.36], ['100%', '0%'], { clamp: true });
   const ySlide3 = useTransform(smoothProgress, [0.47, 0.61], ['100%', '0%'], { clamp: true });
@@ -49,7 +68,12 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject 
       {/* pinned viewport stage */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {/* progress indicators */}
-        <div className="absolute top-[76px] sm:top-24 right-4 sm:right-12 z-50 flex items-center gap-1.5 sm:gap-2 p-1.5 sm:p-2 rounded-xl sm:rounded-2xl bg-[#fffdf5] border-2 border-[#0f172a] shadow-[2.5px_2.5px_0px_#0f172a] sm:shadow-[4px_4px_0px_#0f172a]">
+        <motion.div 
+          className="absolute top-32 sm:top-32 right-4 sm:right-12 z-50 flex items-center gap-1.5 sm:gap-2 p-1.5 sm:p-2 rounded-xl sm:rounded-2xl bg-[#fffdf5] border-2 border-[#0f172a] shadow-[2.5px_2.5px_0px_#0f172a] sm:shadow-[4px_4px_0px_#0f172a]"
+          animate={{ opacity: indicatorVisible ? 1 : 0 }}
+          transition={{ opacity: { duration: 0.4 } }}
+          style={{ pointerEvents: indicatorVisible ? 'auto' : 'none' }}
+        >
           {[0, 1, 2, 3].map((idx) => (
             <div
               key={idx}
@@ -68,8 +92,8 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject 
                 transition={{ ease: 'easeOut' }}
               />
             </div>
-          ))}
-        </div>
+           ))}
+        </motion.div>
 
         {/* flagship slide presentation */}
         {flagshipProjects[0] && (
