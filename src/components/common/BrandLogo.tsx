@@ -24,9 +24,9 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
     <div className={`inline-flex items-center gap-2.5 ${className}`}>
       <div className="relative flex items-center justify-center transition-transform group-hover:scale-105 select-none">
         <img
-          src="/ryhndastra.png"
+          src="/fdhlnel.jpg"
           alt="Fadhlan El Fauzi Logo"
-          className={`${currentSize.img} object-contain drop-shadow-md`}
+          className={`${currentSize.img} object-contain rounded-full drop-shadow-md`}
           loading="eager"
         />
       </div>
