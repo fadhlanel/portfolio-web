@@ -239,7 +239,7 @@ export const projectsData: Project[] = [
 export const experienceData: ExperienceItem[] = [
   {
     id: 'edu-smkn6-jember',
-    period: '2023 - Sekarang',
+    period: '2024 - Sekarang',
     role: 'Siswa Kelas 12 Rekayasa Perangkat Lunak',
     organization: 'SMKN 6 Jember',
     badge: 'Pendidikan Formal',
