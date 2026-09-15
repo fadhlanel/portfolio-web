@@ -20,11 +20,11 @@ export const RebuildConstructionOverlay: React.FC<RebuildConstructionOverlayProp
   }, []);
 
   const comicSounds = [
-    { icon: <Hammer className="w-5 h-5 text-[#f59e0b]" />, label: 'CLANK!' },
-    { icon: <Wrench className="w-5 h-5 text-[#0284c7]" />, label: 'FIXING!' },
-    { icon: <Cpu className="w-5 h-5 text-[#059669]" />, label: 'STRUCTURING!' },
-    { icon: <Terminal className="w-5 h-5 text-[#8c6239]" />, label: 'RESTORE!' },
-    { icon: <Check className="w-5 h-5 text-[#059669]" />, label: 'PERFECT!' }
+    { icon: <Hammer className="w-5 h-5 text-[#f59e0b]" />, label: 'KLANG!' },
+    { icon: <Wrench className="w-5 h-5 text-[#0284c7]" />, label: 'PERBAIKI!' },
+    { icon: <Cpu className="w-5 h-5 text-[#059669]" />, label: 'SUSUN ULANG!' },
+    { icon: <Terminal className="w-5 h-5 text-[#8c6239]" />, label: 'PULIHKAN!' },
+    { icon: <Check className="w-5 h-5 text-[#059669]" />, label: 'SEMPURNA!' }
   ];
 
   useEffect(() => {
@@ -272,7 +272,7 @@ export const RebuildConstructionOverlay: React.FC<RebuildConstructionOverlayProp
               </div>
 
               <div className="flex items-center justify-between text-xs font-mono font-bold text-[#8c6239] px-1">
-                <span>RECONSTRUCTION PROGRESS</span>
+                <span>PROGRES RESTORASI</span>
                 <span className="text-sm sm:text-base font-black text-[#0f172a]">{progress}%</span>
               </div>
             </div>

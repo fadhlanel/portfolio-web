@@ -31,7 +31,7 @@ export const FloodActionButton: React.FC<FloodActionButtonProps> = ({
             title="Sapu konten dengan ombak besar"
           >
             <Waves className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-            <span>Flood Beach</span>
+            <span>Sapuan Ombak</span>
           </motion.button>
         )}
 
@@ -51,7 +51,7 @@ export const FloodActionButton: React.FC<FloodActionButtonProps> = ({
             title="Tata ulang dan bangun kembali pasir pantai"
           >
             <Wrench className="w-4 h-4" />
-            <span>Rebuild Sand</span>
+            <span>Restorasi Pantai</span>
           </motion.button>
         )}
 
@@ -66,7 +66,7 @@ export const FloodActionButton: React.FC<FloodActionButtonProps> = ({
           >
             <RefreshCw className="w-4 h-4 text-[#f59e0b] animate-spin" />
             <div className="text-xs font-mono font-bold text-[#0f172a]">
-              Rebuilding {rebuildProgress}%
+              Restorasi {rebuildProgress}%
             </div>
           </motion.div>
         )}

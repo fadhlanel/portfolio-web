@@ -27,6 +27,26 @@ export const profileData: ProfileData = {
 export const techStackData: TechItem[] = [
   // client interface layer
   {
+    name: 'React',
+    category: 'frontend',
+    layer: 'client',
+    iconKey: 'react',
+    color: '#0284c7',
+    roleTag: 'UI Library',
+    usageContext: 'Modern component-based reactive web user interfaces and single page applications',
+    projectLinks: []
+  },
+  {
+    name: 'Tailwind CSS',
+    category: 'frontend',
+    layer: 'client',
+    iconKey: 'tailwindcss',
+    color: '#0284c7',
+    roleTag: 'Utility CSS',
+    usageContext: 'Rapid responsive web styling and design system structuring',
+    projectLinks: []
+  },
+  {
     name: 'Flutter',
     category: 'mobile',
     layer: 'client',
@@ -102,6 +122,16 @@ export const techStackData: TechItem[] = [
   },
 
   // infrastructure and tools layer
+  {
+    name: 'Vite',
+    category: 'tools',
+    layer: 'devops',
+    iconKey: 'vite',
+    color: '#646cff',
+    roleTag: 'Build Tooling',
+    usageContext: 'Next-generation fast frontend bundling and local development server',
+    projectLinks: []
+  },
   {
     name: 'Windows',
     category: 'tools',
