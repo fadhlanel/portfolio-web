@@ -1,4 +1,4 @@
-# Template Portfolio Pantai 🏖️🌊
+# Portfolio Pantai 🏖️🌊
 
 Template website portofolio interaktif bertema pesisir pantai dan neo-brutalisme modern. Dilengkapi dengan simulasi ombak 2D canvas, fisika gerak dinamis, karakter pantai interaktif, dan arsitektur kode React 19 + TypeScript + Vite yang rapi.
 
